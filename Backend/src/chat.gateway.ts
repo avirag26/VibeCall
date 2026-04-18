@@ -105,6 +105,14 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     }
   }
 
+  @SubscribeMessage('stop-searching')
+  handleStopSearching(@ConnectedSocket() client: Socket) {
+    const user = this.connectedUsers.get(client.id);
+    if (!user) return;
+    this.waitingUsers = this.waitingUsers.filter(u => u.id !== client.id);
+    console.log(`User ${client.id} stopped searching`);
+  }
+
   @SubscribeMessage('end-call')
   handleEndCall(@ConnectedSocket() client: Socket) {
     const user = this.connectedUsers.get(client.id);

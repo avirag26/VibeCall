@@ -20,5 +20,6 @@ async function bootstrap() {
   
   await app.listen(port, host);
   console.log(`Backend is running on http://${host}:${port}`);
+  console.log("heyy")
 }
 bootstrap();

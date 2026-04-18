@@ -30,7 +30,7 @@ interface ChatMessage {
 
 @WebSocketGateway({
   cors: {
-    origin: ['http://localhost:3000'], // Allow frontend localhost
+    origin: ['http://localhost:3000', 'https://vibe-call-frontend.vercel.app'], // Allow localhost and Vercel
     methods: ['GET', 'POST'],
     credentials: true,
   },
